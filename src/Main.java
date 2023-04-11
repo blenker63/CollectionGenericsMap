@@ -42,25 +42,20 @@ public class Main {
         System.out.println(newText);
     }
 
+//
+
     public static void task4() {
         System.out.println("Задача 4");
-        List<String> text = new ArrayList<>(List.of("кто", "кто", "в", "теремочке", "живет", "кто", "живет", "муравей", "живет", "кто"));
-        System.out.println("длина масссива - " + text.size());
-        for (int i = 0; i < text.size(); i++) {
-            String textCheck = text.get(i);
-            int replay = 1;
-
-            for (int j = 1; j < text.size(); j++) {
-                String textDouble = text.get(j);
-                if (textCheck.equals(textDouble)) {
-                    replay++;
-                    text.remove(j);
-                }
-
+        List<String> text = new ArrayList<>(List.of("кто", "кто", "в", "теремочке", "живет", "кто", "живет", "муравей", "вот", "кто"));
+        Map<String, Integer> textMap = new TreeMap<>();
+        for (String word : text) {
+            if (!textMap.containsKey(word)) {
+                textMap.put(word, 1);
+            } else {
+                textMap.put(word, textMap.get(word) + 1);
             }
-            System.out.println(textCheck + " - " + replay);
         }
-        System.out.println("длина масссива - " + text.size());
+        System.out.println(textMap);
     }
 }
 
